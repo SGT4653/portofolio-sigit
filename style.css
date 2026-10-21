@@ -298,11 +298,6 @@ body::after {
     transition: transform .7s cubic-bezier(.2, .8, .2, 1), opacity .5s ease;
 }
 
-/* disentuh: topeng terlepas ke atas dan menghilang */
-.photo-switch:hover .photo-mask {
-    transform: translate(-8%, -42%) rotate(-24deg) scale(1.1);
-    opacity: 0;
-}
 
 @media (max-width: 800px) {
     .photo-switch { width: 200px; }
@@ -311,4 +306,13 @@ body::after {
 @media (prefers-reduced-motion: reduce) {
     .photo-switch .photo-mask { transition: opacity .2s; }
     .photo-switch:hover .photo-mask { transform: none; }
+}
+/* Rapikan Home */
+.hero { padding: 60px 0 30px; }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn.ghost { background: transparent; color: #eaf6ee; border: 1px solid rgba(255,255,255,.18); box-shadow: none; }
+.btn.ghost:hover { background: rgba(255,255,255,.1); border-color: #8fdcae; }
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.tags li { padding: 5px 14px; font-size: 13px; color: #a7c2b2; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; }
+@media (max-width: 800px) { .cta, .tags { justify-content: center; } 
 }
