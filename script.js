@@ -2,32 +2,31 @@
 document.addEventListener("DOMContentLoaded", function () {
     const menuBtn = document.getElementById("menuBtn");
     const navMenu = document.getElementById("navMenu");
-    const navLinks = document.querySelectorAll(".nav-link");
+    const navLinks = document.querySelectorAll(".nav-menu a");
 
-    const homeSection = document.getElementById("home");
-    const experienceSection = document.getElementById("pengalaman");
+    const home = document.getElementById("home");
+    const pengalaman = document.getElementById("pengalaman");
+    const year = document.getElementById("currentYear");
 
-    // Tahun otomatis pada footer
-    const yearElement = document.getElementById("currentYear");
-
-    if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
+    // Tahun otomatis
+    if (year) {
+        year.textContent = new Date().getFullYear();
     }
 
-    // Membuka dan menutup menu mobile
+    // Menu HP
     function closeMenu() {
         if (!menuBtn || !navMenu) return;
 
-        navMenu.classList.remove("show");
-        menuBtn.classList.remove("active");
+        navMenu.classList.remove("open");
+        menuBtn.classList.remove("open");
         menuBtn.setAttribute("aria-expanded", "false");
     }
 
     if (menuBtn && navMenu) {
         menuBtn.addEventListener("click", function () {
-            const isOpen = navMenu.classList.toggle("show");
+            const isOpen = navMenu.classList.toggle("open");
 
-            menuBtn.classList.toggle("active", isOpen);
+            menuBtn.classList.toggle("open", isOpen);
             menuBtn.setAttribute("aria-expanded", String(isOpen));
         });
 
@@ -51,32 +50,34 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Mengatur navbar aktif berdasarkan posisi halaman
+    // Navbar aktif berdasarkan posisi scroll
     function updateActiveNav() {
         const marker = window.scrollY + 180;
+        let activeId = "home";
 
-        let activeSection = "home";
-
-        if (
-            experienceSection &&
-            marker >= experienceSection.offsetTop
-        ) {
-            activeSection = "pengalaman";
-        } else if (homeSection) {
-            activeSection = "home";
+        if (pengalaman && marker >= pengalaman.offsetTop) {
+            activeId = "pengalaman";
+        } else if (home) {
+            activeId = "home";
         }
 
         navLinks.forEach(function (link) {
-            const target = link.getAttribute("href");
+            const isActive =
+                link.getAttribute("href") === "#" + activeId;
 
-            link.classList.toggle(
-                "active",
-                target === "#" + activeSection
-            );
+            link.classList.toggle("active", isActive);
         });
     }
 
-    // Klik navigasi langsung memperbarui status aktif
+    window.addEventListener("scroll", updateActiveNav, {
+        passive: true
+    });
+
+    window.addEventListener("resize", updateActiveNav);
+
+    window.addEventListener("hashchange", updateActiveNav);
+
+    // Perbarui status setelah klik menu
     navLinks.forEach(function (link) {
         link.addEventListener("click", function () {
             const target = link.getAttribute("href");
@@ -88,14 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-
-    window.addEventListener("scroll", updateActiveNav, {
-        passive: true
-    });
-
-    window.addEventListener("resize", updateActiveNav);
-
-    window.addEventListener("hashchange", updateActiveNav);
 
     updateActiveNav();
 });
