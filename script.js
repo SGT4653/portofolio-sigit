@@ -1,107 +1,101 @@
 
-/* =================================
-   PORTOFOLIO MUHAMMAD SIGIT ARIZKY
-   Navigasi sederhana dan ringan
-================================= */
+document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.getElementById("menuBtn");
+    const navMenu = document.getElementById("navMenu");
+    const navLinks = document.querySelectorAll(".nav-link");
 
-const menuBtn = document.getElementById("menuBtn");
-const navMenu = document.getElementById("navMenu");
-const navLinks = document.querySelectorAll(".nav-menu a");
-const sections = document.querySelectorAll("main section[id]");
+    const homeSection = document.getElementById("home");
+    const experienceSection = document.getElementById("pengalaman");
 
-// Buka dan tutup menu HP
-function toggleMenu(open) {
-    if (!menuBtn || !navMenu) return;
+    // Tahun otomatis pada footer
+    const yearElement = document.getElementById("currentYear");
 
-    navMenu.classList.toggle("open", open);
-    menuBtn.classList.toggle("open", open);
-    menuBtn.setAttribute("aria-expanded", String(open));
-    menuBtn.setAttribute(
-        "aria-label",
-        open ? "Tutup menu" : "Buka menu"
-    );
-}
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
 
-if (menuBtn && navMenu) {
-    menuBtn.addEventListener("click", () => {
-        const isOpen = navMenu.classList.contains("open");
-        toggleMenu(!isOpen);
-    });
+    // Membuka dan menutup menu mobile
+    function closeMenu() {
+        if (!menuBtn || !navMenu) return;
 
-    // Tutup menu setelah link diklik
-    navLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            toggleMenu(false);
+        navMenu.classList.remove("show");
+        menuBtn.classList.remove("active");
+        menuBtn.setAttribute("aria-expanded", "false");
+    }
+
+    if (menuBtn && navMenu) {
+        menuBtn.addEventListener("click", function () {
+            const isOpen = navMenu.classList.toggle("show");
+
+            menuBtn.classList.toggle("active", isOpen);
+            menuBtn.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        navLinks.forEach(function (link) {
+            link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("click", function (event) {
+            if (
+                !navMenu.contains(event.target) &&
+                !menuBtn.contains(event.target)
+            ) {
+                closeMenu();
+            }
+        });
+
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 680) {
+                closeMenu();
+            }
+        });
+    }
+
+    // Mengatur navbar aktif berdasarkan posisi halaman
+    function updateActiveNav() {
+        const marker = window.scrollY + 180;
+
+        let activeSection = "home";
+
+        if (
+            experienceSection &&
+            marker >= experienceSection.offsetTop
+        ) {
+            activeSection = "pengalaman";
+        } else if (homeSection) {
+            activeSection = "home";
+        }
+
+        navLinks.forEach(function (link) {
+            const target = link.getAttribute("href");
+
+            link.classList.toggle(
+                "active",
+                target === "#" + activeSection
+            );
+        });
+    }
+
+    // Klik navigasi langsung memperbarui status aktif
+    navLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+            const target = link.getAttribute("href");
+
+            if (target === "#home" || target === "#pengalaman") {
+                navLinks.forEach(function (item) {
+                    item.classList.toggle("active", item === link);
+                });
+            }
         });
     });
 
-    // Tutup menu jika klik di luar navigasi
-    document.addEventListener("click", event => {
-        const clickedInsideMenu = navMenu.contains(event.target);
-        const clickedButton = menuBtn.contains(event.target);
-
-        if (!clickedInsideMenu && !clickedButton) {
-            toggleMenu(false);
-        }
+    window.addEventListener("scroll", updateActiveNav, {
+        passive: true
     });
 
-    // Tutup menu ketika layar kembali ke desktop
-    window.addEventListener("resize", () => {
-        if (window.innerWidth > 680) {
-            toggleMenu(false);
-        }
-    });
-}
+    window.addEventListener("resize", updateActiveNav);
 
-// Menandai menu berdasarkan bagian yang terlihat
-function setActiveLink(sectionId) {
-    navLinks.forEach(link => {
-        const isActive =
-            link.getAttribute("href") === `#${sectionId}`;
+    window.addEventListener("hashchange", updateActiveNav);
 
-        link.classList.toggle("active", isActive);
-
-        if (isActive) {
-            link.setAttribute("aria-current", "location");
-        } else {
-            link.removeAttribute("aria-current");
-        }
-    });
-}
-
-// Pantau bagian halaman yang terlihat
-if ("IntersectionObserver" in window) {
-    const sectionObserver = new IntersectionObserver(
-        entries => {
-            const visibleSections = entries
-                .filter(entry => entry.isIntersecting)
-                .sort(
-                    (a, b) =>
-                        b.intersectionRatio - a.intersectionRatio
-                );
-
-            if (visibleSections.length > 0) {
-                setActiveLink(visibleSections[0].target.id);
-            }
-        },
-        {
-            rootMargin: "-20% 0px -60% 0px",
-            threshold: [0, 0.1, 0.25, 0.5]
-        }
-    );
-
-    sections.forEach(section => {
-        sectionObserver.observe(section);
-    });
-}
-
-// Atur menu saat halaman pertama kali dibuka
-window.addEventListener("load", () => {
-    const currentId = window.location.hash.slice(1);
-
-    if (currentId && document.getElementById(currentId)) {
-        setActiveLink(currentId);
-    } else {
-        setActiveLink("home");
-    }
+    updateActiveNav();
 });
