@@ -4,39 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portofolio Muhammad Sigit Arizky, mahasiswa Ilmu Komputer UINSU.">
-    <meta name="theme-color" content="#06291d">
 
-    <title>Muhammad Sigit Arizky | Portofolio</title>
+    <title>M Sigit Arizky | Portofolio</title>
+    <meta name="description" content="Portofolio pribadi Muhammad Sigit Arizky, mahasiswa Ilmu Komputer UINSU.">
 
-    <link rel="icon" href="logo.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- NAVBAR -->
     <header class="navbar">
-        <div class="container nav-inner">
+        <div class="nav-container">
 
-            <a href="#home" class="brand" aria-label="Kembali ke Home">
-                <img src="logo.png" class="logo-img" alt="Logo UINSU">
+            <a href="#home" class="nav-logo">
+                <img src="logo.png" alt="Logo UINSU">
             </a>
 
-            <button
-                class="menu-btn"
-                id="menuBtn"
-                aria-label="Buka menu"
-                aria-expanded="false"
-                aria-controls="navMenu"
-            >
+            <button class="menu-btn" id="menuBtn"
+                    aria-label="Buka menu navigasi"
+                    aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
             <nav class="nav-menu" id="navMenu">
-                <a href="#home" class="active">Home</a>
-                <a href="#pengalaman">Pengalaman</a>
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#pengalaman" class="nav-link">Pengalaman</a>
             </nav>
 
         </div>
@@ -45,184 +39,141 @@
     <main>
 
         <!-- HOME -->
-        <section id="home" class="hero">
+        <section class="hero" id="home">
+            <div class="hero-container">
 
-            <div class="container hero-inner">
-
-                <div class="hero-text">
-
-                    <p class="eyebrow">PORTOFOLIO PRIBADI</p>
+                <div class="hero-content">
+                    <p class="hero-label">PORTOFOLIO PRIBADI</p>
 
                     <h1>
                         Halo, saya
                         <span>Muhammad Sigit Arizky</span>
                     </h1>
 
-                    <p class="lead">
-                        Saya berasal dari Medan, Sumatera Utara,
-                        dan merupakan mahasiswa Program Studi Ilmu
-                        Komputer di Universitas Islam Negeri Sumatera
-                        Utara (UINSU). Saat ini saya menjalani program
-                        magang di PT Pelabuhan Indonesia (Pelindo)
-                        untuk memperluas wawasan dan pengalaman kerja.
+                    <p class="hero-description">
+                        Saya berasal dari Medan, Sumatera Utara, dan merupakan
+                        mahasiswa Program Studi Ilmu Komputer di Universitas
+                        Islam Negeri Sumatera Utara (UINSU). Saat ini saya
+                        menjalani program magang di PT Pelabuhan Indonesia
+                        (Pelindo) untuk memperluas wawasan dan pengalaman kerja.
                     </p>
 
-                    <div class="cta">
-                        <a href="#pengalaman" class="btn ghost">
+                    <div class="hero-buttons">
+                        <a href="#pengalaman" class="btn btn-outline">
                             Lihat Pengalaman
                         </a>
 
-                        <a href="#kontak-home" class="btn">
-                            Hubungi Saya
-                        </a>
-                    </div>
-
-                    <ul class="tags">
-                        <li>DATABASE</li>
-                        <li>JAVASCRIPT</li>
-                        <li>CSS</li>
-                    </ul>
-
-                </div>
-
-                <div class="hero-photo">
-                    <img
-                        class="photo-main"
-                        src="sgt.png"
-                        alt="Foto Muhammad Sigit Arizky"
-                    >
-                </div>
-
-            </div>
-
-            <!-- PROFIL SINGKAT -->
-            <div class="container home-details">
-
-                <div class="home-profile">
-
-                    <p class="section-label">PROFIL SINGKAT</p>
-
-                    <h2 class="title">Tentang Saya</h2>
-
-                    <p class="intro">
-                        Saya Muhammad Sigit Arizky, mahasiswa Ilmu
-                        Komputer UINSU dari Medan, Sumatera Utara.
-                        Saya tertarik mempelajari teknologi,
-                        pengembangan web, dan pengolahan data.
-                        Melalui pengalaman magang di Pelindo,
-                        saya ingin terus mengembangkan keterampilan
-                        serta memahami dunia kerja secara langsung.
-                    </p>
-
-                    <div class="info-grid">
-
-                        <div class="info">
-                            <span>Nama Lengkap</span>
-                            <strong>Muhammad Sigit Arizky</strong>
-                        </div>
-
-                        <div class="info">
-                            <span>NIM</span>
-                            <strong>0701242124</strong>
-                        </div>
-
-                        <div class="info">
-                            <span>Universitas</span>
-                            <strong>Universitas Islam Negeri Sumatera Utara</strong>
-                        </div>
-
-                        <div class="info">
-                            <span>Program Studi</span>
-                            <strong>Ilmu Komputer</strong>
-                        </div>
-
-                        <div class="info">
-                            <span>Asal</span>
-                            <strong>Medan, Sumatera Utara</strong>
-                        </div>
-
-                        <div class="info">
-                            <span>Status</span>
-                            <strong>Mahasiswa</strong>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- KONTAK DI HOME -->
-                <div class="home-contact" id="kontak-home">
-
-                    <p class="section-label">TERHUBUNG</p>
-
-                    <h2 class="title">Kontak Saya</h2>
-
-                    <p class="intro">
-                        Silakan hubungi saya melalui Gmail
-                        atau kunjungi Instagram.
-                    </p>
-
-                    <div class="contact-grid">
-
                         <a
-                            href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=sigitmuhammad467@gmail.com"
+                            href="https://mail.google.com/mail/?view=cm&fs=1&to=sigitmuhammad@gmail.com"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="contact"
-                        >
-                            <span class="contact-icon">✉</span>
-                            <span class="contact-label">Gmail</span>
-                            <strong>sigitmuhammad467@gmail.com</strong>
+                            class="btn btn-primary">
+                            Hubungi Saya
                         </a>
 
                         <a
                             href="https://www.instagram.com/sgtrzky_/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="contact"
-                        >
-                            <span class="contact-icon">◎</span>
-                            <span class="contact-label">Instagram</span>
-                            <strong>@sgtrzky_</strong>
+                            class="btn btn-outline">
+                            Instagram
                         </a>
+                    </div>
 
+                    <div class="hero-skills">
+                        <span>DATABASE</span>
+                        <span>JAVASCRIPT</span>
+                        <span>CSS</span>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <div class="image-frame">
+                        <img src="sgt.png" alt="Foto Muhammad Sigit Arizky">
                     </div>
                 </div>
 
             </div>
+
+            <!-- TENTANG SAYA DIGABUNG KE HOME -->
+            <div class="home-details">
+                <div class="home-profile">
+                    <p class="section-label">PROFIL SAYA</p>
+                    <h2>Tentang Saya</h2>
+
+                    <p>
+                        Saya adalah mahasiswa Ilmu Komputer yang tertarik
+                        pada teknologi, pengembangan website, dan pengolahan
+                        data. Saya terus belajar mengembangkan keterampilan
+                        teknis, meningkatkan kemampuan pemecahan masalah,
+                        serta mendapatkan pengalaman melalui proyek dan
+                        kegiatan magang.
+                    </p>
+                </div>
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+                        <span>Nama</span>
+                        <strong>Muhammad Sigit Arizky</strong>
+                    </div>
+
+                    <div class="info-card">
+                        <span>NIM</span>
+                        <strong>0701242124</strong>
+                    </div>
+
+                    <div class="info-card">
+                        <span>Universitas</span>
+                        <strong>UINSU</strong>
+                    </div>
+
+                    <div class="info-card">
+                        <span>Program Studi</span>
+                        <strong>Ilmu Komputer</strong>
+                    </div>
+
+                    <div class="info-card">
+                        <span>Asal</span>
+                        <strong>Medan, Sumatera Utara</strong>
+                    </div>
+
+                    <div class="info-card">
+                        <span>Status</span>
+                        <strong>Mahasiswa</strong>
+                    </div>
+
+                </div>
+            </div>
         </section>
 
         <!-- PENGALAMAN -->
-        <section id="pengalaman" class="section section-alt">
+        <section class="experience-section" id="pengalaman">
+            <div class="section-container">
 
-            <div class="container">
-
-                <p class="section-label">PENGALAMAN</p>
-
-                <h2 class="title">Pengalaman Magang</h2>
-
-                <p class="intro">
-                    Pengalaman untuk memperluas wawasan dan mengenal
-                    lingkungan kerja profesional.
-                </p>
-
-                <article class="experience-card">
-
-                    <div class="card-top">
-                        <span class="badge">Sedang Berlangsung</span>
-                        <span class="card-date">Internship</span>
-                    </div>
-
-                    <h3>PT Pelabuhan Indonesia (Pelindo)</h3>
-
+                <div class="section-heading">
+                    <p class="section-label">PERJALANAN SAYA</p>
+                    <h2>Pengalaman</h2>
                     <p>
-                        Saat ini saya sedang menjalani program magang
-                        di PT Pelabuhan Indonesia (Pelindo). Melalui
-                        kesempatan ini, saya ingin memperoleh pengalaman,
-                        memahami lingkungan kerja, dan memperluas wawasan
-                        sebagai bekal untuk masa depan.
+                        Pengalaman yang membantu saya mengembangkan
+                        keterampilan dan wawasan profesional.
                     </p>
+                </div>
 
-                </article>
+                <div class="experience-card">
+                    <div class="experience-content">
+                        <span class="experience-tag">MAGANG</span>
+
+                        <h3>PT Pelabuhan Indonesia (Pelindo)</h3>
+
+                        <p>
+                            Mengikuti kegiatan magang untuk memperoleh
+                            pengalaman kerja, mengenal lingkungan profesional,
+                            dan meningkatkan kemampuan dalam menyelesaikan
+                            tugas secara bertanggung jawab.
+                        </p>
+                    </div>
+                </div>
 
             </div>
         </section>
@@ -231,13 +182,12 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="container">
-            <p>© 2026 Muhammad Sigit Arizky</p>
-            <span>Portofolio Pribadi</span>
-        </div>
+        <p>
+            &copy; <span id="currentYear"></span>
+            Muhammad Sigit Arizky. All rights reserved.
+        </p>
     </footer>
 
     <script src="script.js"></script>
-
 </body>
 </html>
