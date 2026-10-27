@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>M Sigit Arizky | Portofolio</title>
-    <meta name="description" content="Portofolio pribadi Muhammad Sigit Arizky, mahasiswa Ilmu Komputer UINSU.">
+    <meta name="description" content="Portofolio Muhammad Sigit Arizky, mahasiswa Ilmu Komputer UINSU.">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,14 +14,14 @@
 
     <!-- NAVBAR -->
     <header class="navbar">
-        <div class="nav-container">
+        <div class="container nav-inner">
 
-            <a href="#home" class="nav-logo">
-                <img src="logo.png" alt="Logo UINSU">
+            <a href="#home" class="brand" aria-label="Beranda">
+                <img src="logo.png" alt="Logo UINSU" class="logo-img">
             </a>
 
             <button class="menu-btn" id="menuBtn"
-                    aria-label="Buka menu navigasi"
+                    aria-label="Buka menu"
                     aria-expanded="false">
                 <span></span>
                 <span></span>
@@ -29,8 +29,8 @@
             </button>
 
             <nav class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#pengalaman" class="nav-link">Pengalaman</a>
+                <a href="#home" class="active">Home</a>
+                <a href="#pengalaman">Pengalaman</a>
             </nav>
 
         </div>
@@ -40,107 +40,113 @@
 
         <!-- HOME -->
         <section class="hero" id="home">
-            <div class="hero-container">
+            <div class="container">
 
-                <div class="hero-content">
-                    <p class="hero-label">PORTOFOLIO PRIBADI</p>
+                <div class="hero-inner">
 
-                    <h1>
-                        Halo, saya
-                        <span>Muhammad Sigit Arizky</span>
-                    </h1>
+                    <div class="hero-text">
+                        <p class="eyebrow">PORTOFOLIO PRIBADI</p>
 
-                    <p class="hero-description">
-                        Saya berasal dari Medan, Sumatera Utara, dan merupakan
-                        mahasiswa Program Studi Ilmu Komputer di Universitas
-                        Islam Negeri Sumatera Utara (UINSU). Saat ini saya
-                        menjalani program magang di PT Pelabuhan Indonesia
-                        (Pelindo) untuk memperluas wawasan dan pengalaman kerja.
-                    </p>
+                        <h1>
+                            Halo, saya
+                            <span>Muhammad Sigit Arizky</span>
+                        </h1>
 
-                    <div class="hero-buttons">
-                        <a href="#pengalaman" class="btn btn-outline">
-                            Lihat Pengalaman
-                        </a>
+                        <p class="lead">
+                            Saya berasal dari Medan, Sumatera Utara, dan merupakan
+                            mahasiswa Program Studi Ilmu Komputer di Universitas
+                            Islam Negeri Sumatera Utara (UINSU). Saat ini saya
+                            menjalani program magang di PT Pelabuhan Indonesia
+                            (Pelindo) untuk memperluas wawasan dan pengalaman kerja.
+                        </p>
 
-                        <a
-                            href="https://mail.google.com/mail/?view=cm&fs=1&to=sigitmuhammad@gmail.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn btn-primary">
-                            Hubungi Saya
-                        </a>
+                        <div class="cta">
+                            <a href="#pengalaman" class="btn ghost">
+                                Lihat Pengalaman
+                            </a>
 
-                        <a
-                            href="https://www.instagram.com/sgtrzky_/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn btn-outline">
-                            Instagram
-                        </a>
+                            <a
+                                href="https://mail.google.com/mail/?view=cm&fs=1&to=sigitmuhammad@gmail.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn">
+                                Hubungi Saya
+                            </a>
+
+                            <a
+                                href="https://www.instagram.com/sgtrzky_/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn ghost">
+                                Instagram
+                            </a>
+                        </div>
+
+                        <ul class="tags">
+                            <li>DATABASE</li>
+                            <li>JAVASCRIPT</li>
+                            <li>CSS</li>
+                        </ul>
                     </div>
 
-                    <div class="hero-skills">
-                        <span>DATABASE</span>
-                        <span>JAVASCRIPT</span>
-                        <span>CSS</span>
+                    <div class="hero-photo">
+                        <img
+                            src="sgt.png"
+                            alt="Foto Muhammad Sigit Arizky"
+                            class="photo-main">
                     </div>
+
                 </div>
 
-                <div class="hero-image">
-                    <div class="image-frame">
-                        <img src="sgt.png" alt="Foto Muhammad Sigit Arizky">
-                    </div>
-                </div>
+                <!-- TENTANG SAYA -->
+                <div class="home-details">
 
-            </div>
+                    <div class="home-profile">
+                        <p class="section-label">PROFIL SAYA</p>
+                        <h2 class="title">Tentang Saya</h2>
 
-            <!-- TENTANG SAYA DIGABUNG KE HOME -->
-            <div class="home-details">
-                <div class="home-profile">
-                    <p class="section-label">PROFIL SAYA</p>
-                    <h2>Tentang Saya</h2>
+                        <p class="intro">
+                            Saya adalah mahasiswa Ilmu Komputer yang tertarik
+                            pada teknologi, pengembangan website, dan pengolahan
+                            data. Saya terus belajar mengembangkan keterampilan
+                            teknis, meningkatkan kemampuan pemecahan masalah,
+                            serta memperoleh pengalaman melalui proyek dan
+                            kegiatan magang.
+                        </p>
 
-                    <p>
-                        Saya adalah mahasiswa Ilmu Komputer yang tertarik
-                        pada teknologi, pengembangan website, dan pengolahan
-                        data. Saya terus belajar mengembangkan keterampilan
-                        teknis, meningkatkan kemampuan pemecahan masalah,
-                        serta mendapatkan pengalaman melalui proyek dan
-                        kegiatan magang.
-                    </p>
-                </div>
+                        <div class="info-grid">
 
-                <div class="info-grid">
+                            <div class="info">
+                                <span>Nama</span>
+                                <strong>Muhammad Sigit Arizky</strong>
+                            </div>
 
-                    <div class="info-card">
-                        <span>Nama</span>
-                        <strong>Muhammad Sigit Arizky</strong>
-                    </div>
+                            <div class="info">
+                                <span>NIM</span>
+                                <strong>0701242124</strong>
+                            </div>
 
-                    <div class="info-card">
-                        <span>NIM</span>
-                        <strong>0701242124</strong>
-                    </div>
+                            <div class="info">
+                                <span>Universitas</span>
+                                <strong>UINSU</strong>
+                            </div>
 
-                    <div class="info-card">
-                        <span>Universitas</span>
-                        <strong>UINSU</strong>
-                    </div>
+                            <div class="info">
+                                <span>Program Studi</span>
+                                <strong>Ilmu Komputer</strong>
+                            </div>
 
-                    <div class="info-card">
-                        <span>Program Studi</span>
-                        <strong>Ilmu Komputer</strong>
-                    </div>
+                            <div class="info">
+                                <span>Asal</span>
+                                <strong>Medan, Sumatera Utara</strong>
+                            </div>
 
-                    <div class="info-card">
-                        <span>Asal</span>
-                        <strong>Medan, Sumatera Utara</strong>
-                    </div>
+                            <div class="info">
+                                <span>Status</span>
+                                <strong>Mahasiswa</strong>
+                            </div>
 
-                    <div class="info-card">
-                        <span>Status</span>
-                        <strong>Mahasiswa</strong>
+                        </div>
                     </div>
 
                 </div>
@@ -148,33 +154,29 @@
         </section>
 
         <!-- PENGALAMAN -->
-        <section class="experience-section" id="pengalaman">
-            <div class="section-container">
+        <section class="section section-alt" id="pengalaman">
+            <div class="container">
 
-                <div class="section-heading">
-                    <p class="section-label">PERJALANAN SAYA</p>
-                    <h2>Pengalaman</h2>
-                    <p>
-                        Pengalaman yang membantu saya mengembangkan
-                        keterampilan dan wawasan profesional.
-                    </p>
-                </div>
+                <p class="section-label">PERJALANAN SAYA</p>
+                <h2 class="title">Pengalaman</h2>
 
                 <div class="experience-card">
-                    <div class="experience-content">
-                        <span class="experience-tag">MAGANG</span>
 
-                        <h3>PT Pelabuhan Indonesia (Pelindo)</h3>
-
-                        <p>
-                            Mengikuti kegiatan magang untuk memperoleh
-                            pengalaman kerja, mengenal lingkungan profesional,
-                            dan meningkatkan kemampuan dalam menyelesaikan
-                            tugas secara bertanggung jawab.
-                        </p>
+                    <div class="card-top">
+                        <span class="badge">MAGANG</span>
+                        <span class="card-date">Pengalaman Kerja</span>
                     </div>
-                </div>
 
+                    <h3>PT Pelabuhan Indonesia (Pelindo)</h3>
+
+                    <p>
+                        Mengikuti kegiatan magang untuk memperoleh pengalaman
+                        kerja, mengenal lingkungan profesional, serta
+                        meningkatkan kemampuan dalam menyelesaikan tugas
+                        secara teliti dan bertanggung jawab.
+                    </p>
+
+                </div>
             </div>
         </section>
 
@@ -182,10 +184,12 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-        <p>
-            &copy; <span id="currentYear"></span>
-            Muhammad Sigit Arizky. All rights reserved.
-        </p>
+        <div class="container">
+            <p>
+                &copy; <span id="currentYear"></span>
+                Muhammad Sigit Arizky. All rights reserved.
+            </p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
