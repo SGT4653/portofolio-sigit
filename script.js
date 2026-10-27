@@ -16,6 +16,10 @@ function toggleMenu(open) {
     navMenu.classList.toggle("open", open);
     menuBtn.classList.toggle("open", open);
     menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.setAttribute(
+        "aria-label",
+        open ? "Tutup menu" : "Buka menu"
+    );
 }
 
 if (menuBtn && navMenu) {
@@ -24,14 +28,14 @@ if (menuBtn && navMenu) {
         toggleMenu(!isOpen);
     });
 
-    // Tutup menu setelah tautan diklik
+    // Tutup menu setelah link diklik
     navLinks.forEach(link => {
         link.addEventListener("click", () => {
             toggleMenu(false);
         });
     });
 
-    // Tutup menu jika pengguna mengeklik area di luar menu
+    // Tutup menu jika klik di luar navigasi
     document.addEventListener("click", event => {
         const clickedInsideMenu = navMenu.contains(event.target);
         const clickedButton = menuBtn.contains(event.target);
@@ -41,7 +45,7 @@ if (menuBtn && navMenu) {
         }
     });
 
-    // Tutup menu jika layar berubah menjadi desktop
+    // Tutup menu ketika layar kembali ke desktop
     window.addEventListener("resize", () => {
         if (window.innerWidth > 680) {
             toggleMenu(false);
@@ -49,10 +53,11 @@ if (menuBtn && navMenu) {
     });
 }
 
-// Menandai navbar berdasarkan bagian yang terlihat
+// Menandai menu berdasarkan bagian yang terlihat
 function setActiveLink(sectionId) {
     navLinks.forEach(link => {
-        const isActive = link.getAttribute("href") === `#${sectionId}`;
+        const isActive =
+            link.getAttribute("href") === `#${sectionId}`;
 
         link.classList.toggle("active", isActive);
 
@@ -64,7 +69,7 @@ function setActiveLink(sectionId) {
     });
 }
 
-// Gunakan IntersectionObserver jika tersedia
+// Pantau bagian halaman yang terlihat
 if ("IntersectionObserver" in window) {
     const sectionObserver = new IntersectionObserver(
         entries => {
@@ -90,7 +95,7 @@ if ("IntersectionObserver" in window) {
     });
 }
 
-// Jika halaman dibuka melalui tautan seperti #kontak
+// Atur menu saat halaman pertama kali dibuka
 window.addEventListener("load", () => {
     const currentId = window.location.hash.slice(1);
 
