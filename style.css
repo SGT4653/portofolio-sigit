@@ -1,7 +1,7 @@
 
 /* =================================
    PORTOFOLIO MUHAMMAD SIGIT ARIZKY
-   Tema hijau UINSU - modern & profesional
+   Tema hijau UINSU - simple & profesional
 ================================= */
 
 :root {
@@ -291,7 +291,7 @@ body::after {
     font-size: 12px;
 }
 
-/* FOTO PROFIL - SOFT GLOW */
+/* FOTO PROFIL - WARNA NATURAL + SOFT GLOW */
 .hero-photo {
     display: flex;
     justify-content: center;
@@ -302,7 +302,7 @@ body::after {
     isolation: isolate;
 }
 
-/* Cahaya lembut di belakang foto */
+/* Cahaya hijau lembut di belakang foto */
 .hero-photo::before {
     content: "";
     position: absolute;
@@ -327,32 +327,46 @@ body::after {
     width: 100%;
     height: 100%;
     max-width: 520px;
-    object-fit: contain;
-    object-position: center bottom;
+    aspect-ratio: auto;
     border: none;
     border-radius: 0;
     background: transparent;
+    object-fit: contain;
+    object-position: center bottom;
 
-    filter:
-        grayscale(100%)
-        contrast(1.08)
-        drop-shadow(0 0 12px rgba(143, 220, 174, 0.12));
+    /* Mempertahankan warna asli foto */
+    filter: drop-shadow(0 0 12px rgba(143, 220, 174, 0.12));
+    opacity: 1;
+    box-shadow: none;
 
-    opacity: 0.97;
+    /* Pinggiran samping dan bawah lebih lembut */
+    -webkit-mask-image:
+        radial-gradient(
+            ellipse 82% 92% at 50% 42%,
+            #000 68%,
+            transparent 100%
+        ),
+        linear-gradient(
+            to bottom,
+            #000 0%,
+            #000 78%,
+            transparent 100%
+        );
+    -webkit-mask-composite: source-in;
 
-    -webkit-mask-image: linear-gradient(
-        to bottom,
-        black 0%,
-        black 78%,
-        transparent 100%
-    );
-
-    mask-image: linear-gradient(
-        to bottom,
-        black 0%,
-        black 78%,
-        transparent 100%
-    );
+    mask-image:
+        radial-gradient(
+            ellipse 82% 92% at 50% 42%,
+            #000 68%,
+            transparent 100%
+        ),
+        linear-gradient(
+            to bottom,
+            #000 0%,
+            #000 78%,
+            transparent 100%
+        );
+    mask-composite: intersect;
 }
 
 /* PROFIL DAN KONTAK DI HOME */
